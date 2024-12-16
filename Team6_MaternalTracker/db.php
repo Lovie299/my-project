@@ -2,7 +2,7 @@
 $host = 'mtdb.cvgeuswekt15.eu-north-1.rds.amazonaws.com';
 $db = 'mtdb'; // Your database name
 $user = 'root'; // Your database username
-$pass = ''; // Your database password (leave empty if using XAMPP default)
+$pass = 'cloudteam6'; // Your database password (leave empty if using XAMPP default)
 $charset = 'utf8mb4';
 
 $dsn = "mysql:host=$host;dbname=$db;charset=$charset";
