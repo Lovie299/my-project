@@ -5,11 +5,16 @@ $user = 'admin'; // Your database username
 $pass = 'cloudteam6'; // Your database password (leave empty if using XAMPP default)
 $charset = 'utf8mb4';
 
+$dsn = "mysql:host=$host;dbname=$db;charset=$charset";
+$options = [
+    PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION,
+    PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC,
+    PDO::ATTR_EMULATE_PREPARES => false,
+];
+
 try {
-    $conn = new PDO("mysql:host=$host;dbname=$dbname", $username, $password);
-    $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-    echo "Connected to Amazon RDS successfully!";
+    $pdo = new PDO($dsn, $user, $pass, $options);
 } catch (PDOException $e) {
-    echo "Connection failed: " . $e->getMessage();
+    die("Database connections failed: " . $e->getMessage());
 }
 ?>
